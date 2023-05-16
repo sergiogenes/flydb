@@ -4,7 +4,9 @@ const { Users } = require("../modules");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  Users.findAll().then((users) => res.status(200).send(users));
+  Users.findAll()
+    .then((users) => res.status(200).send(users))
+    .catch((error) => res.status(500).send(error));
 });
 
 router.post("/", (req, res) => {
