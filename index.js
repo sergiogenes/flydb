@@ -19,6 +19,10 @@ server.use(express.json());
 
 server.use("/", router);
 
+server.use("/", (req, res) => {
+  res.send("Aplicación corriendo!");
+});
+
 db.sync({ force: false })
   .then(() => {
     console.log("Base de datos sincronizada");
